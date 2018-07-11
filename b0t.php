@@ -27,7 +27,7 @@ $message = $update["message"]["text"];
 
 if ($update["message"]["new_chat_member"]["username"] == "HusnaBot") {
 	sendVoiceMessage($chatId, "https://kursat.blog/b0t/audio/selam.ogg","hey bitchezzz");
-	$veri = "ben hüsna b0t\nbilgiad yazarsan sana harika bilgiler getiririm\n####\nallambilgiat {söz öbeği} formatında şeyler söylersen de arar tarar senin için o şeyi bulurum\n####\ngetirhoca {id}|{ad-soyad} yazarsan senin için okulda o öğrenciyi ararım\n####\nmizahyab yazarsan senin için birbirinden eĞLenCeLi fıkralarımdan birisini anlatırım.\n####\nfotoad yazarsan senin için internetin derinliklerinden elde ettiğim görsellerimden birisini paylaşırım";
+	$veri = "ben hüsna b0t\nbilgiad yazarsan sana harika bilgiler getiririm\n####\nallambilgiad {söz öbeği} formatında şeyler söylersen de arar tarar senin için o şeyi bulurum\n####\ngetirhoca {id}|{ad-soyad} yazarsan senin için okulda o öğrenciyi ararım\n####\nmizahyab yazarsan senin için birbirinden eĞLenCeLi fıkralarımdan birisini anlatırım.\n####\nfotoad yazarsan senin için internetin derinliklerinden elde ettiğim görsellerimden birisini paylaşırım";
 	$veri .="\n####\nhenüz yeni sayılırım mazur gör hoja";
 	sendMessage($chatId,$veri);
 	die();
