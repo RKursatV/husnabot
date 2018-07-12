@@ -197,7 +197,7 @@ else{
 					} elseif (is_numeric(strpos($message, '!'))) {
 						//
 						sendMessage($chatId,"hoja sakin ol hoja",$update["message"]["message_id"]);
-
+					}
 				}
 }
 
