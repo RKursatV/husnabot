@@ -1,13 +1,13 @@
-<?php 
+<?php
 require_once("connection.php");
 $website = "https://api.telegram.org/bot".$botToken;
- 
+
 $update = file_get_contents('php://input');
 $update = json_decode($update, TRUE);
 
 /*
 $output = print_r($update, true);
- 
+
 $ac = fopen("logx.txt","a+");
 fwrite($ac,$output."\n");
 
@@ -37,7 +37,7 @@ elseif ($update["message"]["new_chat_member"]["username"]) {
 	die();
 }
 elseif ($update["message"]["left_chat_participant"]["username"]) {
-	
+
 	sendVoiceMessage($chatId, "https://kursat.blog/b0t/audio/seriuzgunad.ogg",$update["message"]["left_chat_participant"]["first_name"]. " gitti. artık bir eksiğiz...");
 	die();
 }
@@ -46,6 +46,11 @@ elseif ($lastname == "Çaykuş"){
 	sendVoiceMessage($chatId, "https://kursat.blog/b0t/audio/iyiyiy.ogg","",$update["message"]["message_id"]);
 	die();
 }
+elseif ($firstname == "Alim"){
+  $veri = "Alim boş yapma amk"
+  sendMessage($chatId, $veri);
+  die();
+}
 if($update["message"]["chat"]["type"] =="private") {
 	if ($sender != "z4r4r") {
 		sendMessage($chatId, "üzgünüm, sadece botlarla görüşüyorum");
@@ -53,7 +58,7 @@ if($update["message"]["chat"]["type"] =="private") {
 		notify_owner("@".$sender." dedi ki: ". $message);
 	}
 	else{
-		
+
 			$parcala = explode(" ",$message,2);
 			switch($parcala[0]) {
 			        case "ekle":
@@ -64,7 +69,7 @@ if($update["message"]["chat"]["type"] =="private") {
 					  break;
 					case "napcaz":
 							sendMessage($chatId, "takılmasak mı");
-						break;		
+						break;
 			}
 
 
@@ -88,7 +93,7 @@ else{
 				        }
 
 				        sendMessage($chatId, $parcala[1]);
-				        
+
 
 
 						$category_elems = array();
@@ -130,7 +135,7 @@ else{
 								$stmt ->bind_param("ss",$row["category"],$param);
 								$stmt->execute();
 								$resultx = $stmt->get_result();
-								
+
 								while ($rowx = $resultx->fetch_assoc()) {
 									//$rowx += array('url' => '/student/'.$rowx["description"] );
 									array_push($category_elems, $rowx);
@@ -177,6 +182,9 @@ else{
 					mizahShow($chatId);
 
 					break;
+        case "açızhoca":
+          yemekhane();
+          break;
 				case "help":
 
 						$veri = "ben hüsna b0t\nbilgiad yazarsan sana harika bilgiler getiririm\n####\nallambilgiat {söz öbeği} formatında şeyler söylersen de arar tarar senin için o şeyi bulurum\n####\ngetirhoca {id}|{ad-soyad} yazarsan senin için okulda o öğrenciyi aratırım.\n####\nmizahyab yazarsan senin için birbirinden eĞLenCeLi fıkralarımdan birisini anlatırım.\n####\nfotoad yazarsan senin için internetin derinliklerinden elde ettiğim görsellerimden birisini paylaşırım";
@@ -206,12 +214,12 @@ else{
 
 
 
- 
+
 function sendMessage ($chatId, $message,$reply_to_message_id = 0) {
        	$reply = ($reply_to_message_id != 0) ? "&reply_to_message_id=".$reply_to_message_id: "";
         $url = $GLOBALS[website]."/sendMessage?chat_id=".urlencode($chatId)."&text=".urlencode($message).$reply;
         requEst($url);
-       
+
 }
 function mizahShow ($chatId) {
 
@@ -240,7 +248,7 @@ function mizahShow ($chatId) {
 		else{
 			sendMessage($chatId, $ver);
 		}
-       
+
 }
 
 
@@ -261,7 +269,7 @@ function sendPhoto ($chatId) {
 		$sonhal = "http://www.funcage.com".$result[1][1];
         $url = $GLOBALS[website]."/sendPhoto?chat_id=".urlencode($chatId)."&photo=".urlencode($sonhal);
         requEst($url);
-       
+
 }
 function sendVoiceMessage ($chatId, $voice, $caption="",$reply_to_message_id = 0) {
        	$reply = ($reply_to_message_id != 0) ? "&reply_to_message_id=".$reply_to_message_id: "";
@@ -308,6 +316,22 @@ function wiki_getir_ozel($veri){
 		$response = json_decode($response, TRUE);
 		curl_close($ch);
 		return $response;
+}
+
+function yemekhane()
+{
+	$ch = curl_init();
+	$url = "https://kafeterya.metu.edu.tr"
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$response =curl_exec($ch);
+	curl_close($ch);
+	$result = "";
+
+	preg_match_all ("/<div class=yemek>([^`]*?)<\/div>/", $response, $result);
+	$ver = "yemekhanede bunlar var hoca \n";
+	$ver += $result[1][0];
+	sendMessage($chatId, $ver);
 }
 
 
