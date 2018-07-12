@@ -194,10 +194,16 @@ else{
 					if (is_numeric(strpos($message, '?')) || is_numeric(strpos($message, '¿'))) {
 						//
 						sendMessage($chatId,"bu ne saçma soru amk",$update["message"]["message_id"]);
-					} elseif (is_numeric(strpos($message, '!'))) {
+					} elseif (is_numeric(strpos($message, '!')) || is_numeric(strpos($message, '¡')))  {
 						//
 						sendMessage($chatId,"hoja sakin ol hoja",$update["message"]["message_id"]);
 					}
+					elseif (is_numeric(strpos($message, 'xd')) || is_numeric(strpos($message, 'xD'))) {
+						sendVoiceMessage($chatId, "https://kursat.blog/b0t/audio/iyiyiy.ogg","",$update["message"]["message_id"]);
+						
+					}
+						
+						
 				}
 }
 
