@@ -194,8 +194,10 @@ else{
 					if (is_numeric(strpos($message, '?')) || is_numeric(strpos($message, '¿'))) {
 						//
 						sendMessage($chatId,"bu ne saçma soru amk",$update["message"]["message_id"]);
+					} elseif (is_numeric(strpos($message, '!'))) {
+						//
+						sendMessage($chatId,"hoja sakin ol hoja",$update["message"]["message_id"]);
 					}
-
 				}
 }
 
