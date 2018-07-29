@@ -185,6 +185,10 @@ else{
 
 
 					break;
+				case "dolarad":
+					dolarShow($chatId);
+						
+					break;
 				default:
 					$girmedi = 1;
 					break;
@@ -248,6 +252,34 @@ function mizahShow ($chatId) {
 		}
        
 }
+
+function dolarShow ($chatId) {
+
+
+
+		$ch = curl_init();
+		$url = "http://dolar.tlkur.com/";
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$response =curl_exec($ch);
+		curl_close($ch);
+		$result = "";
+		$mesajDolar = "dolar şimdi: ";
+		preg_match_all ("/<td style="text-align:left;font-size:18px;" id="USDTL_rate">[0-9]\.[0-9][0-9][0-9][0-9]<\/td>/", $response, $result);
+		$ver = $result[1][0];
+
+		$ver =  mb_convert_encoding($ver,'UTF-8','ISO-8859-9');
+
+		$ver = str_replace("<td style="text-align:left;font-size:18px;" id="USDTL_rate">", "", $ver);
+		$ver = str_replace("</td>", "", $ver);
+		$mesajDolar .= $ver;
+		$mesajDolar .= "\nbu devirde bilgisayar alınmaz hocaaaa";
+		
+		sendMessage($chatId, $mesajDolar);
+		
+       
+}
+
 
 
 function sendPhoto ($chatId) {
