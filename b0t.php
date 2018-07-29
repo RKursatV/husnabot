@@ -265,12 +265,13 @@ function dolarShow ($chatId) {
 		curl_close($ch);
 		$result = "";
 		$mesajDolar = "dolar şimdi: ";
-		preg_match_all ("/<td style="text-align:left;font-size:18px;" id="USDTL_rate">[0-9]\.[0-9][0-9][0-9][0-9]<\/td>/", $response, $result);
+		preg_match_all ("/<td style="text-align:left;font-size:18px;. id=.USDTL_rate.>[0-9]\.[0-9][0-9][0-9][0-9]<\/td>/", $response, $result);
 		$ver = $result[1][0];
 
 		$ver =  mb_convert_encoding($ver,'UTF-8','ISO-8859-9');
 
-		$ver = str_replace("<td style="text-align:left;font-size:18px;" id="USDTL_rate">", "", $ver);
+		$ver = str_replace("<td style="text-align:left;font-size:18px;", "", $ver);
+		$ver = str_replace('" id="USDTL_rate">', "", $ver);
 		$ver = str_replace("</td>", "", $ver);
 		$mesajDolar .= $ver;
 		$mesajDolar .= "\nbu devirde bilgisayar alınmaz hocaaaa";
