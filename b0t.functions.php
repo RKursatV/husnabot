@@ -281,12 +281,14 @@ function komutad(){
 /* gunaydin Function STARTS	*/
 function gunadyinFunc(){
 	global $husnab0t;
+	$gunayd=$husnab0t->getFirstWord();
+	if($gunayd=="günaydın" || $gunayd=="gunaydin" || $gunayd=="gunaydın") {		
 	$husnab0t->sendMessage("hepinize günaydınlar :)");
 	havadurumuadFunc();
 	yemekteNeVar();
 	egonomiadFunc();
-}
-
+	}
+	}
 /* gunaydin Function ENDS */
 
 
