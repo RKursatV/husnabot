@@ -555,6 +555,14 @@ function zlotyadFunc() {
 
 /*zlotyad ends*/
 
+/* kursatad starts*/
+function kursatad(){
+	global $husnab0t;
+	$data['photo'] = "kadir.space/kursa.jpg";
+        $husnab0t->sendPhoto($data);
+}
+
+/* kursatad ends*/
 
 /*secimAd starts*/
 
