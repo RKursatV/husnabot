@@ -554,7 +554,26 @@ function zlotyadFunc() {
 }
 
 /*zlotyad ends*/
+/* kursatad starts*/
 
+function kursatad() {
+          global $husnab0t;
+          $message = "http://kadir.space/kursa.jpg";
+          $husnab0t->sendMessage($message);
+}
+function kursad(){
+        global $husnab0t;
+        $response = husnaCurl("kadir.space/kursa.jpg");
+        $result = "";
+        preg_match_all('/src="([^"]+)"/',$response, $result);
+        $sonhal = "kadir.space/kursa.jpg".$result[1][1];
+        $husnab0t->sendPhoto($sonhal);
+}
+
+
+
+
+/* kursatad ends*/
 
 /*secimAd starts*/
 
