@@ -543,6 +543,13 @@ function iyiGeceler() {
 
 /*iyi geceler ends*/
 
+/*krstad starts*/
+function kursatad(){
+	global $husnab0t;
+	$husnab0t->sendPhoto("kadir.space/kursa.jpg","",1);
+}
+/*krstad ends*/
+
 /*zlotyad starts*/
 
 function zlotyadFunc() {
