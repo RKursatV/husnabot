@@ -62,6 +62,8 @@ $husnab0t->addCommand("secimad","secimAd");
 
 $husnab0t->addCommand("geceler","iyiGeceler");
 $husnab0t->addCommand("zlotiad","zlotyadFunc");
+$husnab0t->addCommand("kursatad","kursatad");
+
 
 /* PUT NEW COMMANDS ABOVE */
 
