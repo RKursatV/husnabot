@@ -29,7 +29,7 @@ class husna extends settings
         $this->message = ($data["message"]["text"]) ? mb_strtolower($data["message"]["text"]) : "";
         $this->firstWord = explode(" ",$this->message,2)[0];
         $this->otherWords = (isset(explode(" ",$this->message,2)[1])) ? explode(" ",$this->message,2)[1] : "";
-        $this->$queryTokens = explode(" ", $this->message);
+        $this->queryTokens = explode(" ", $this->message);
         $this->messageId = @$data["message"]["message_id"];
         $this->chatId = @$data["message"]["chat"]["id"];
 	if(isset($data["message"]["new_chat_member"])){

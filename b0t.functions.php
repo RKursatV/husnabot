@@ -173,9 +173,9 @@ function dolaradFunc() {
           $index = array_search("dolarad", $husnab0t->getQueryTokens());
           if($index > 0) {
             //TODO convert money
-            $prevToken = ($husnab0t->getQueryTokens()[$index-1];
+            $prevToken = $husnab0t->getQueryTokens()[$index-1];
 
-            if(is_numeric($prevToken))) {
+            if(is_numeric($prevToken)) {
               $amountToConvert = (float) $prevToken;
             }
           }
@@ -199,9 +199,9 @@ function avroadFunc() {
           $index = $index ? $index : array_search("euroad", $husnab0t->getQueryTokens());
           if($index > 0) {
             //TODO convert money
-            $prevToken = ($husnab0t->getQueryTokens()[$index-1];
+            $prevToken = $husnab0t->getQueryTokens()[$index-1];
 
-            if(is_numeric($prevToken))) {
+            if(is_numeric($prevToken)) {
               $amountToConvert = (float) $prevToken;
             }
           }
@@ -225,9 +225,9 @@ function zlotyadFunc() {
           $index = array_search("zlotiad", $husnab0t->getQueryTokens());
           if(index > 0) {
             //TODO convert money
-            $prevToken = ($husnab0t->getQueryTokens()[$index-1];
+            $prevToken = $husnab0t->getQueryTokens()[$index-1];
 
-            if(is_numeric($prevToken))) {
+            if(is_numeric($prevToken)) {
               $amountToConvert = (float) $prevToken;
             }
           }
