@@ -83,7 +83,7 @@ function mizahyabFunc()
         $response = husnaCurl("http://fikra.gen.tr/index.php");
         $result = "";
         preg_match_all ("/<div class=fikra_body >([^`]*?)<\/div>/", $response, $result);
-        $ver = $result[1][0];
+        $ver = @$result[1][0];
         $ver =  mb_convert_encoding($ver,'UTF-8','ISO-8859-9');
         $ver = str_replace("<br />", "", $ver);
         if(trim($ver) == ""){
