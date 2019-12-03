@@ -26,7 +26,7 @@ require_once("b0t.functions.php");
 $husnab0t->addCommand("husnacim","husnacimFunc");
 $husnab0t->addCommand("hüsnacım","husnacimFunc");
 $husnab0t->addCommand("bilgiad","bilgiadFunc",1);
-$husnab0t->addCommand("mizahyab","mizahyabFunc",1);
+//$husnab0t->addCommand("mizahyab","mizahyabFunc",1); fikra.gen.tr is down
 $husnab0t->addCommand("fotoad","fotoadFunc",1);
 $husnab0t->addCommand("yemekad","yemekteNeVar",1);
 $husnab0t->addCommand("dolarad","dolaradFunc",1);
